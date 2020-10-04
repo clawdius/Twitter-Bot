@@ -1,18 +1,20 @@
 import tweepy
 import logging
-from main import create_api
-from idolsHashtags import hashtags
 import schedule
 import time
 import json
 import datetime
+import sys
+
+from mainDummy import create_api
+from idolsHashtags import hashtags
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
 
 
 def main():
-    api = create_api()
+    api = create_api()        
 
     def obliterate():
         counter = 0
@@ -33,15 +35,26 @@ def main():
                     except Exception:
                         log.error("Cant like and retweet", exc_info=True)
 
-
-            counter += 1
+                counter += 1
         log.info("Process Completed")
 
-    schedule.every().hours.do(obliterate)
+    schedule.every(6).hours.do(obliterate)
+    schedule.run_all()
+
+    formatTime = "%H:%M:%S"
+
+    def timeUntilNextRun():
+        nextRun = schedule.next_run().time().strftime(formatTime)
+        timeNow = datetime.datetime.now().strftime(formatTime)
+        delta = datetime.datetime.strptime(nextRun, formatTime) - datetime.datetime.strptime(timeNow, formatTime)
+
+        deltafix = str(delta).replace('-1 day,','')
+
+        return deltafix + " Time Remaining Until Next Schedule"
 
     while 1:
         schedule.run_pending()
-        log.info("Waiting next run")
+        log.info(timeUntilNextRun())
         time.sleep(1)
           
 if __name__ == "__main__":
