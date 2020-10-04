@@ -38,19 +38,17 @@ def main():
 
                 counter += 1
         log.info("Process Completed")
-        api.update_profile("Why retweet and likes yourself when robot does it better. Next obliterate at "+likeAndRetweet.next_run().time().strftime(formatTime))
+        api.update_profile("Why retweet and likes yourself when robot does it better. Next obliterate at "+ nextRunString())
 
     # def goodMorning():
     #     api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + '!')
     #     log.info("Process completed at " + morningHoursWIB())
 
-    likeAndRetweet = schedule.every(6).hours.do(obliterate)
-    likeAndRetweet.run()
-
+    schedule.every(6).hours.do(obliterate)
     formatTime = "%H:%M:%S"
 
     def timeUntilNextRun():
-        nextRun = likeAndRetweet.next_run().time().strftime(formatTime)
+        nextRun = schedule.next_run().time().strftime(formatTime)
         timeNow = datetime.datetime.now().strftime(formatTime)
         delta = datetime.datetime.strptime(nextRun, formatTime) - datetime.datetime.strptime(timeNow, formatTime)
 
@@ -58,6 +56,11 @@ def main():
 
         return deltafix + " Time Remaining Until Next Obliterate"
 
+    def nextRunString():
+        return str(schedule.next_run().time().strftime(formatTime))
+
+    schedule.run_all()
+    
     while 1:
         schedule.run_pending()
         log.info(timeUntilNextRun())
