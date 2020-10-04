@@ -38,7 +38,7 @@ def main():
 
                 counter += 1
         log.info("Process Completed")
-        api.update_profile("Why retweet and likes yourself when robot does it better. Next obliterate at "+ nextRunString())
+        api.update_profile(description="Why retweet and likes yourself when robot does it better. Next obliterate at "+ nextRunString())
 
     # def goodMorning():
     #     api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + '!')
