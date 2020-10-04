@@ -38,15 +38,14 @@ def main():
 
                 counter += 1
         log.info("Process Completed")
+        api.update_profile("Why retweet and likes yourself when robot does it better. Next obliterate at "+likeAndRetweet.next_run().time().strftime(formatTime))
 
-    def goodMorning():
-        api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + '!')
-        log.info("Process completed at " + morningHoursWIB())
+    # def goodMorning():
+    #     api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + '!')
+    #     log.info("Process completed at " + morningHoursWIB())
 
     likeAndRetweet = schedule.every(6).hours.do(obliterate)
     likeAndRetweet.run()
-
-    goodMorning = schedule.every().day.at("06:00").do(goodMorning())
 
     formatTime = "%H:%M:%S"
 
