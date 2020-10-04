@@ -1,10 +1,11 @@
 import tweepy
 import logging
-from main import create_api
+from mainDummy import create_api
 from idolsHashtags import hashtags
 import schedule
 import time
 import json
+import datetime
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
@@ -12,7 +13,7 @@ log = logging.getLogger()
 
 def main():
     api = create_api()
-    
+
     def obliterate():
         counter = 0
         for idols in hashtags:
@@ -21,22 +22,26 @@ def main():
                 if not i.favorited:
                     try:
                         i.favorite()
+                        log.info(f"Liked tweet from {i.user.name}")
                     except Exception:
                         log.error("Cant like", exc_info=True)
 
                 if not i.retweeted:
                     try:
                         i.retweet()
+                        log.info(f"Retweeted tweet from {i.user.name}")
                     except Exception:
                         log.error("Cant like and retweet", exc_info=True)
 
-            counter += 1
-            time.sleep(5)
 
-    schedule.every(12).hours.do(obliterate)
+            counter += 1
+        log.info("Process Completed")
+
+    schedule.every().hours.do(obliterate)
 
     while 1:
         schedule.run_pending()
+        log.info("Waiting next run")
         time.sleep(1)
           
 if __name__ == "__main__":
