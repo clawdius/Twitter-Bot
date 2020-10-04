@@ -1,6 +1,6 @@
 import tweepy
 import logging
-from mainDummy import create_api
+from main import create_api
 from idolsHashtags import hashtags
 import schedule
 import time
