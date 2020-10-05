@@ -18,6 +18,7 @@ def main():
 
     def obliterate():
         api = create_api() 
+        
         counter = 0
         for idols in hashtags:
             for i in api.search(hashtags[counter], count=1, result_type='photos', lang='en'):
@@ -38,7 +39,7 @@ def main():
 
                 counter += 1
         log.info("Process Completed")
-        api.update_profile(description="Why retweet and likes yourself when robot does it better. Next obliterate at "+ nextRunString())
+        api.update_profile(description="Why retweet and likes yourself when robot does it better. Done obliterating at at "+ nextRunString())
 
     # def goodMorning():
     #     api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + '!')
@@ -58,8 +59,6 @@ def main():
 
     def nextRunString():
         return str(schedule.next_run().time().strftime(formatTime))
-    
-    schedule.run_all()
 
     while 1:
         schedule.run_pending()
