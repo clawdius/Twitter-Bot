@@ -52,7 +52,7 @@ def main():
     formatTime = "%H:%M:%S"
 
     def timeUntilNextObliterate():
-        nextRun = likeandrewteet.next_run().time().strftime(formatTime)
+        nextRun = schedule.next_run().time().strftime(formatTime)
         timeNow = datetime.datetime.now().strftime(formatTime)
         delta = datetime.datetime.strptime(nextRun, formatTime) - datetime.datetime.strptime(timeNow, formatTime)
 
