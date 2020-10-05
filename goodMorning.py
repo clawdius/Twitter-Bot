@@ -14,6 +14,8 @@ log = logging.getLogger()
 
 def main(): 
 
+    formatTime = "%H:%M:%S"
+
     def goodMorning():
         api = create_api()
         idolToday = randomIdols()
@@ -21,10 +23,20 @@ def main():
         api.update_profile(name="Worshipping " + idolToday + " 🤖")
         log.info("Profile and tweet updated!")
 
+    def timeUntilNextMorning():
+        nextRun = schedule.next_run().time().strftime(formatTime)
+        timeNow = datetime.datetime.now().strftime(formatTime)
+        delta = datetime.datetime.strptime(nextRun, formatTime) - datetime.datetime.strptime(timeNow, formatTime)
+
+        deltafix = str(delta).replace('-1 day,','')
+
+        return deltafix + " Time Remaining Until Next Obliterate"
+
     schedule.every().day.at('06:00').do(goodMorning)
 
     while 1:
         schedule.run_pending()
+        log.info(timeUntilNextMorning())
         time.sleep(1)
           
 if __name__ == "__main__":
