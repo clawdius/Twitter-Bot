@@ -6,7 +6,7 @@ import json
 import datetime
 import sys
 
-from mainDummy import create_api
+from main import create_api
 from idolsConfig import randomIdols, idols, hashtags
 
 logging.basicConfig(level=logging.INFO)

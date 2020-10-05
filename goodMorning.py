@@ -19,6 +19,7 @@ def main():
         idolToday = randomIdols()
         api.update_status('Good morning! Today is a good time to worship ' + idolToday + ' !')
         api.update_profile(name="Worshipping " + idolToday + " 🤖")
+        log.info("Profile and tweet updated!")
 
     schedule.every().day.at('06:00').do(goodMorning)
 
