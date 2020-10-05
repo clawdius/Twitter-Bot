@@ -1,2 +1,2 @@
-worker: python autoFavRetweet.py
-warzone: python searchLikeAndRetweet.py
+likeRetweet: python searchLikeAndRetweet.py
+goodMorning: python goodMorning.py

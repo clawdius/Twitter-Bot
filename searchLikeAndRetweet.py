@@ -6,9 +6,8 @@ import json
 import datetime
 import sys
 
-from main import create_api
+from mainDummy import create_api
 from idolsConfig import randomIdols, idols, hashtags
-from updateTimeZone import morningHoursWIB
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
@@ -40,19 +39,13 @@ def main():
                 counter += 1
         
         log.info("Process Completed")
-        api.update_profile(description="Why retweet and likes yourself when robot does it better. Last successful obliterating idols at "+ nextObliterateString() + " (GMT+7)")
-
-    def goodMorning():
-        api = create_api()
-        api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + ' !')
-        log.info("Process completed at " + morningHoursWIB())
+        api.update_profile(description="Last successful obliterating idols at "+ nextObliterateString() + " (GMT+7)")
 
     schedule.every(2).hours.do(obliterate)
-    schedule.every().days.at('06:00').do(goodMorning)
     formatTime = "%H:%M:%S"
 
     def timeUntilNextObliterate():
-        nextRun = schedule.jobs[0].next_run().time().strftime(formatTime)
+        nextRun = schedule.next_run().time().strftime(formatTime)
         timeNow = datetime.datetime.now().strftime(formatTime)
         delta = datetime.datetime.strptime(nextRun, formatTime) - datetime.datetime.strptime(timeNow, formatTime)
 
@@ -61,7 +54,7 @@ def main():
         return deltafix + " Time Remaining Until Next Obliterate"
 
     def nextObliterateString():
-        return str(schedule.jobs[0].next_run().time().strftime(formatTime))
+        return str(schedule.next_run().time().strftime(formatTime))
 
     while 1:
         schedule.run_pending()
