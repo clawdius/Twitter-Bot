@@ -44,7 +44,7 @@ def main():
     #     api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + '!')
     #     log.info("Process completed at " + morningHoursWIB())
 
-    schedule.every(6).hours.do(obliterate)
+    schedule.every(5).minutes.do(obliterate)
     formatTime = "%H:%M:%S"
 
     def timeUntilNextRun():
@@ -58,8 +58,6 @@ def main():
 
     def nextRunString():
         return str(schedule.next_run().time().strftime(formatTime))
-
-    schedule.run_all()
     
     while 1:
         schedule.run_pending()
