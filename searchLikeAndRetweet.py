@@ -40,7 +40,7 @@ def main():
                 counter += 1
         
         log.info("Process Completed")
-        api.update_profile(description="Why retweet and likes yourself when robot does it better. Done obliterating idols at "+ nextObliterateString())
+        api.update_profile(description="Why retweet and likes yourself when robot does it better. Last successful obliterating idols at "+ nextObliterateString() + " (GMT+7)")
 
     def goodMorning():
         api = create_api()
