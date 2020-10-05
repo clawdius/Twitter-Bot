@@ -47,12 +47,12 @@ def main():
         api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + ' !')
         log.info("Process completed at " + morningHoursWIB())
 
-    likeandrewteet = schedule.every(2).hours.do(obliterate)
-    goodmorning = schedule.every().days.at('06:00').do(goodMorning)
+    schedule.every(2).hours.do(obliterate)
+    schedule.every().days.at('06:00').do(goodMorning)
     formatTime = "%H:%M:%S"
 
     def timeUntilNextObliterate():
-        nextRun = schedule.next_run().time().strftime(formatTime)
+        nextRun = schedule.jobs[0].next_run().time().strftime(formatTime)
         timeNow = datetime.datetime.now().strftime(formatTime)
         delta = datetime.datetime.strptime(nextRun, formatTime) - datetime.datetime.strptime(timeNow, formatTime)
 
@@ -61,7 +61,7 @@ def main():
         return deltafix + " Time Remaining Until Next Obliterate"
 
     def nextObliterateString():
-        return str(likeandrewteet.next_run().time().strftime(formatTime))
+        return str(schedule.jobs[0].next_run().time().strftime(formatTime))
 
     while 1:
         schedule.run_pending()
