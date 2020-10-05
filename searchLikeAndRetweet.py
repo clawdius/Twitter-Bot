@@ -7,7 +7,7 @@ import datetime
 import sys
 
 from main import create_api
-from idolsConfig import *
+from idolsConfig import randomIdols, idols, hashtags
 from updateTimeZone import morningHoursWIB
 
 logging.basicConfig(level=logging.INFO)
@@ -40,17 +40,19 @@ def main():
                 counter += 1
         
         log.info("Process Completed")
-        api.update_profile(description="Why retweet and likes yourself when robot does it better. Done obliterating idols at "+ nextRunString())
+        api.update_profile(description="Why retweet and likes yourself when robot does it better. Done obliterating idols at "+ nextObliterateString())
 
-    # def goodMorning():
-    #     api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + '!')
-    #     log.info("Process completed at " + morningHoursWIB())
+    def goodMorning():
+        api = create_api()
+        api.update_status('Good morning! Today is a good time to worship ' + randomIdols() + ' !')
+        log.info("Process completed at " + morningHoursWIB())
 
-    schedule.every().hours.do(obliterate)
+    likeandrewteet = schedule.every(2).hours.do(obliterate)
+    goodmorning = schedule.every().days.at('06:00').do(goodMorning)
     formatTime = "%H:%M:%S"
 
-    def timeUntilNextRun():
-        nextRun = schedule.next_run().time().strftime(formatTime)
+    def timeUntilNextObliterate():
+        nextRun = likeandrewteet.next_run().time().strftime(formatTime)
         timeNow = datetime.datetime.now().strftime(formatTime)
         delta = datetime.datetime.strptime(nextRun, formatTime) - datetime.datetime.strptime(timeNow, formatTime)
 
@@ -58,12 +60,12 @@ def main():
 
         return deltafix + " Time Remaining Until Next Obliterate"
 
-    def nextRunString():
-        return str(schedule.next_run().time().strftime(formatTime))
+    def nextObliterateString():
+        return str(likeandrewteet.next_run().time().strftime(formatTime))
 
     while 1:
         schedule.run_pending()
-        log.info(timeUntilNextRun())
+        log.info(timeUntilNextObliterate())
         time.sleep(1)
           
 if __name__ == "__main__":

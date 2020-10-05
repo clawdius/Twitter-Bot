@@ -1,7 +1,7 @@
 import tweepy
 import logging
 from main import create_api
-from idolsHashtags import hashtags
+from idolsConfig import hashtags
 import time
 import json
 
