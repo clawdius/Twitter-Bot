@@ -59,6 +59,8 @@ def main():
     def nextRunString():
         return str(schedule.next_run().time().strftime(formatTime))
     
+    schedule.run_all()
+
     while 1:
         schedule.run_pending()
         log.info(timeUntilNextRun())
