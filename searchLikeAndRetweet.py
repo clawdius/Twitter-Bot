@@ -14,10 +14,10 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
 
 
-def main():
-    api = create_api()     
+def main():    
 
     def obliterate():
+        api = create_api() 
         counter = 0
         for idols in hashtags:
             for i in api.search(hashtags[counter], count=1, result_type='photos', lang='en'):
