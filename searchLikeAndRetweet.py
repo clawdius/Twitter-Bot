@@ -18,9 +18,10 @@ def main():
     def obliterate():
         api = create_api() 
         counter = 0
+        successfulProcess = 0
 
         for idols in hashtags:
-            for i in api.search(hashtags[counter], count=1, result_type='photos', lang='en'):
+            for i in api.search(hashtags[counter], count=1, result_type='mixed', lang='en'):
 
                 if not i.favorited:
                     try:
@@ -33,13 +34,16 @@ def main():
                     try:
                         i.retweet()
                         log.info(f"Retweeted tweet from {i.user.name}")
+                        successfulProcess += 1
                     except Exception:
                         log.error("Cant like and retweet", exc_info=True)
 
                 counter += 1
+                time.sleep(1)
+                log.info("Searching next hashtag")
         
-        log.info("Process Completed")
-        api.update_profile(description="Last successful obliterating idols at "+ nextObliterateString() + " (GMT+7)")
+        log.info("Successfully processing " + str(successfulProcess) + " tweet(s)")
+        api.update_profile(description="Last successful obliterating idols at "+ nextObliterateString() + " (GMT+7) with " + str(successfulProcess) + " tweet(s)")
 
     schedule.every(2).hours.do(obliterate)
     formatTime = "%H:%M:%S"
@@ -55,6 +59,8 @@ def main():
 
     def nextObliterateString():
         return str(schedule.next_run().time().strftime(formatTime))
+
+    schedule.run_all()
 
     while 1:
         schedule.run_pending()
