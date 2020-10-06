@@ -1,2 +1,1 @@
-likeRetweet: python searchLikeAndRetweet.py
-goodMorning: python goodMorning.py
+main: python MorningAndRetweet.py
