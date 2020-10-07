@@ -12,7 +12,10 @@ from idolsConfig import randomIdols, idols, hashtags
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
 
-def main():    
+def main():   
+
+    def nextOperationString():
+        return str(schedule.next_run().time().strftime(formatTime)) 
 
     def goodMorning():
         api = create_api()
@@ -24,10 +27,13 @@ def main():
     def obliterate():
         api = create_api() 
         successfulProcess = 0
+        idols = 0
 
-        for idols in hashtags:
-            counter = 0
-            for i in api.search(hashtags[counter], count=2, result_type='mixed', lang='en'):
+        for j in hashtags:
+
+            for i in api.search(hashtags[idols], count=2, result_type='mixed', lang='en'):
+
+                log.info("Searching " + hashtags[idols]) 
 
                 if not i.favorited:
                     try:
@@ -43,16 +49,12 @@ def main():
                         successfulProcess += 1
                     except Exception:
                         log.error("Already Retweeted")
-
-                counter += 1
                 time.sleep(1)
-            log.info("Searching next hashtag") 
+            
+            idols += 1  
+
         log.info("Successfully processing " + str(successfulProcess) + " tweet(s)")
         api.update_profile(description="Successfully obliterated " + str(successfulProcess) + " tweet(s) at " + nextOperationString() + " timestamp (GMT+7)")
-
-    schedule.every(2).hours.do(obliterate)
-    schedule.every().day.at('06:00').do(goodMorning)
-    formatTime = "%H:%M:%S"
 
     def timeUntilNextOperation():
         nextRun = schedule.next_run().time().strftime(formatTime)
@@ -63,8 +65,9 @@ def main():
 
         return deltafix + " next until operation"
 
-    def nextOperationString():
-        return str(schedule.next_run().time().strftime(formatTime))
+    schedule.every(2).hours.do(obliterate)
+    schedule.every().day.at('06:00').do(goodMorning)
+    formatTime = "%H:%M:%S"
 
     while 1:
         schedule.run_pending()
