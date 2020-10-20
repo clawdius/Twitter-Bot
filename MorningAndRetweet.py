@@ -37,14 +37,14 @@ def main():
 
                 if not i.favorited:
                     try:
-                        i.favorite()
+                        # i.favorite()
                         log.info(f"Liked tweet from {i.user.name}")
                     except Exception:
                         log.error("Already Liked")
 
                 if not i.retweeted:
                     try:
-                        i.retweet()
+                        # i.retweet()
                         log.info(f"Retweeted tweet from {i.user.name}")
                         successfulProcess += 1
                     except Exception:
