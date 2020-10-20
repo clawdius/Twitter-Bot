@@ -31,20 +31,20 @@ def main():
 
         for j in hashtags:
 
-            for i in api.search(hashtags[idols], count=2, result_type='mixed', lang='en'):
+            for i in api.search(hashtags[idols], count=1, result_type='top', lang='en'):
 
                 log.info("Searching " + hashtags[idols]) 
 
                 if not i.favorited:
                     try:
-                        # i.favorite()
+                        i.favorite()
                         log.info(f"Liked tweet from {i.user.name}")
                     except Exception:
                         log.error("Already Liked")
 
                 if not i.retweeted:
                     try:
-                        # i.retweet()
+                        i.retweet()
                         log.info(f"Retweeted tweet from {i.user.name}")
                         successfulProcess += 1
                     except Exception:
