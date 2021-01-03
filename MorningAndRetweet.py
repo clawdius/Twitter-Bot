@@ -5,6 +5,7 @@ import time
 import json
 import datetime
 import sys
+import random
 
 from main import create_api
 from idolsConfig import randomIdols, idols, hashtags
@@ -22,6 +23,11 @@ def main():
         idolToday = randomIdols()
         api.update_status('Good morning! Today is a good time to worship ' + idolToday + '!')
         api.update_profile(name="Worshipping " + idolToday + " 🤖")
+
+        picsIndex = str(random.randint(1, 3))
+        picsLoc = 'pic/' + idolToday + picsIndex + '.png'
+        api.update_profile_image(picsLoc)
+
         log.info("Profile and tweet updated!")
 
     def obliterate():
@@ -31,7 +37,7 @@ def main():
 
         for j in hashtags:
 
-            for i in api.search(hashtags[idols], count=1, result_type='top', lang='en'):
+            for i in api.search(hashtags[idols] + ' filter:media', count=1, result_type='mixed', lang='en'):
 
                 log.info("Searching " + hashtags[idols]) 
 

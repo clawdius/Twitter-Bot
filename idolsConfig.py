@@ -5,7 +5,7 @@ hashtags = [
     ]
 
 idols = [
-    'Aisha', 'Yiren', 'Ryujin', 'Yeji', 'Simyeong', 'Chaesol', 'Juri', 'Yeonhee', 'Suyun', 'Joy', 'Jihyo', 'Jisoo', 'Chaeryeong', 'Yuna', 'Sihyeon', 'Mina', 'Momo', 'Winter', 'Irene', 'Jang Gyu-ri', 'Nagyung', 'Kwon Eunbi', 'Karina', 'Giselle', 'Ningning', 'Hye Won', 'Minju', 'Naeun' , 'Arin' , 'Suzy', 'Sumin', 'Isa', 'Yoon', 'J'
+    'Aisha', 'Yiren', 'Ryujin', 'Yeji', 'Simyeong', 'Chaesol', 'Juri', 'Yeonhee', 'Suyun', 'Joy', 'Jihyo', 'Jisoo', 'Chaeryeong', 'Yuna', 'Sihyeon', 'Mina', 'Momo', 'Winter', 'Irene', 'Gyuri', 'Nagyung', 'Eunbi', 'Karina', 'Giselle', 'Ningning', 'Hyewon', 'Minju', 'Naeun' , 'Arin' , 'Suzy', 'Sumin', 'Isa', 'Yoon', 'J'
     ]
 
 def randomIdols():
