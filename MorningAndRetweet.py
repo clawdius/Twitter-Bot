@@ -37,7 +37,7 @@ def main():
 
         for j in hashtags:
 
-            for i in api.search(hashtags[idols] + ' filter:media', count=1, result_type='mixed', lang='en'):
+            for i in api.search(hashtags[idols] + ' filter:media', count=1, result_type='recent', lang='en'):
 
                 log.info("Searching " + hashtags[idols]) 
 
