@@ -9,13 +9,16 @@ import schedule
 import tweepy
 
 from idolsConfig import hashtags, idols
-from main import create_api
+from mainDummy import create_api
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
 
-def main():   
+# Create blank availableIdols on first program run
+availableIdols = []
 
+def main():   
+   
     def nextOperationString():
         return str(schedule.next_run().time().strftime(formatTime)) 
 
@@ -97,9 +100,6 @@ def main():
 
     # Format used in time
     formatTime = "%H:%M:%S"
-
-    # Create blank availableIdols on first program run
-    availableIdols = []
 
     while 1:
         schedule.run_pending()
