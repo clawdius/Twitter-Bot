@@ -1,1 +1,1 @@
-main: python MorningAndRetweet.py
+main: python MainProcess.py
