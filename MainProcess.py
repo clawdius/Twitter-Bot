@@ -9,7 +9,7 @@ import schedule
 import tweepy
 
 from idolsConfig import hashtags, idols
-from mainDummy import create_api
+from main import create_api
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
