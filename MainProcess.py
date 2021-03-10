@@ -41,7 +41,6 @@ def main():
         api.update_profile_image(picsLoc)
 
         log.info("Profile and tweet updated!")
-        log.info("Current idols on pool: "+ str(len(availableIdols)) +" idols")
 
     def obliterate():
         api = create_api() 
