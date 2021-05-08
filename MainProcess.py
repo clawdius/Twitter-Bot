@@ -53,7 +53,7 @@ def main():
 
         for j in availableHashtags:
 
-            for i in api.search(availableHashtags[counter] + ' filter:media', count=1, result_type='recent', lang='en'):
+            for i in api.search(availableHashtags[counter] + ' filter:media', count=1, result_type='mixed', lang='en'):
 
                 log.info("Searching " + availableHashtags[counter]) 
 

@@ -7,7 +7,8 @@ hashtags = [
     '#강혜원', '#김민주', '#나은' , '#아린' , '#수지', 
     '#수민' , '#아이사', '#윤', '#재이', '#리아', 
     '#희진', '#예리', '#김제니', '#박채영', '#리사',
-    '#이브', '#비비'
+    '#이브', '#비비', '#재희', '#지한', '#조아',
+    '#지안 #LUNARSOLAR', '#유우리'
     ]
 
 idols = [
@@ -19,5 +20,6 @@ idols = [
     'Hyewon', 'Minju', 'Naeun' , 'Arin' , 'Suzy', 
     'Sumin', 'Isa', 'Yoon', 'J', 'Lia', 
     'Heejin', 'Yeri', 'Jennie', 'Rosé', 'Lisa',
-    'Yves', 'Vivi'
+    'Yves', 'Vivi', 'Jaehee', 'Jihan', 'Zoa',
+    'Jian', 'Yuuri'
     ]
