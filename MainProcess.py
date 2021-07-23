@@ -14,23 +14,15 @@ from main import create_api
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
 
-# Create blank availableIdols on first program run
-availableIdols = []
 
 def main():   
    
-    def nextOperationString():
+    def successOperationString():
         return str(schedule.next_run().time().strftime(formatTime)) 
 
     def goodMorning():
 
-        global availableIdols
-
-        if not availableIdols:
-            availableIdols = idols[:]
-        
         idolToday = randomIdolsGenerator()
-        availableIdols.remove(idolToday)
 
         api = create_api()
         api.update_status('Good morning! Today is a good time to worship ' + idolToday + '!')
@@ -77,7 +69,7 @@ def main():
 
         availableHashtags.clear()
         log.info("Successfully processing " + str(successfulProcess) + " tweet(s)")
-        api.update_profile(description="Successfully obliterated " + str(successfulProcess) + " tweet(s) at " + nextOperationString() + " timestamp (GMT+7)")
+        api.update_profile(description="Successfully obliterated " + str(successfulProcess) + " tweet(s) at " + successOperationString() + " timestamp (GMT+7)")
 
     def timeUntilNextOperation():
         nextRun = schedule.next_run().time().strftime(formatTime)
@@ -89,9 +81,9 @@ def main():
         return deltafix + " next until operation"
 
     def randomIdolsGenerator():
-        maxLength = len(availableIdols) - 1
+        maxLength = len(idols) - 1
         index = random.randint(0, maxLength)
-        return availableIdols[index]
+        return idols[index]
 
     # Scheduling tasks
     schedule.every(2).hours.do(obliterate)
