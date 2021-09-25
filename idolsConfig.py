@@ -9,7 +9,8 @@ hashtags = [
     '#희진', '#예리', '#김제니', '#박채영', '#리사',
     '#이브', '#비비', '#재희', '#지한', '#조아',
     '#지안 #LUNARSOLAR', '#유우리', '#지유', '#가현' ,'#수아',
-    '#시은', '#서경', '#서령', '#엘리', '#우기'
+    '#시은', '#서경', '#서령', '#엘리', '#우기',
+    '#지선', '#슬기', '#웬디'
     ]
 
 idols = [
@@ -23,5 +24,6 @@ idols = [
     'Heejin', 'Yeri', 'Jennie', 'Rosé', 'Lisa',
     'Yves', 'Vivi', 'Jaehee', 'Jihan', 'Zoa',
     'Jian', 'Yuuri', 'JiU', 'Gahyeon', 'SuA',
-    'Sieun', 'Seokyoung', 'Seoryoung', 'Elly', 'Yuqi'
+    'Sieun', 'Seokyoung', 'Seoryoung', 'Elly', 'Yuqi',
+    'Jisun', 'Seulgi', 'Wendy'
     ]
