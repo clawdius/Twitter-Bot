@@ -45,7 +45,7 @@ def main():
 
         for j in availableHashtags:
 
-            for i in api.search(availableHashtags[counter] + ' filter:media', count=1, result_type='mixed', lang='en'):
+            for i in api.search(availableHashtags[counter] + ' filter:media', count=2, result_type='mixed'):
 
                 log.info("Searching " + availableHashtags[counter]) 
 
