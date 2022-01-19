@@ -1,21 +1,21 @@
 My Personal Automatic Worshipping Idol Bot
 
-- What?
-- A bot on twitter that retweets things related to my idols every 2 hours
+**What?**
+- _A bot on twitter that retweets things related to my idols every 2 hours_
 
-- Why?
-- Because i don't want to follow a huge amount of idols fanbase just to get their photos
+**Why?**
+- _Because i don't want to follow a huge amount of idols fanbase just to get their photos_
 
-- How?
-- Python and Tweepy
+**How?**
+- _Python and Tweepy_
 
-- Where?
-- To automate the bot, i use heroku
+**Where?**
+- _To automate the bot, i use heroku_
 
-- When?
-- Since October 2020 when i got bored of pandemic
+**When?**
+- _Since October 2020 when i got bored of pandemic_
 
-- Who?
-- You can check the currently worshipped idols on idolsConfig.py
+**Who?**
+- _You can check the currently worshipped idols on idolsConfig.py_
 
 Thank you.
