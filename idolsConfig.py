@@ -11,8 +11,8 @@ hashtags = [
     '#지안 #LUNARSOLAR', '#유우리', '#지유', '#가현' ,'#수아',
     '#시은', '#서경', '#서령', '#엘리', '#우기',
     '#지선', '#슬기', '#웬디', '#유진', '원영',
-    '#리즈', '#은하', '#신비', '#이새롬', '#하영'
-    
+    '#리즈', '#은하', '#신비', '#이새롬', '#하영',
+    '#사쿠라', '#채원', '#이서', '#가을'
     ]
 
 idols = [
@@ -28,6 +28,6 @@ idols = [
     'Jian', 'Yuuri', 'JiU', 'Gahyeon', 'SuA',
     'Sieun', 'Seokyoung', 'Seoryoung', 'Elly', 'Yuqi',
     'Jisun', 'Seulgi', 'Wendy', 'Yujin', 'Wonyoung',
-    'Liz', 'Eunha', 'SinB', 'Saerom', 'Hayoung'
-    
+    'Liz', 'Eunha', 'SinB', 'Saerom', 'Hayoung',
+    'Sakura', 'Chaewon', 'Leeseo', 'Gaeul'
     ]

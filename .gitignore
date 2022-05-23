@@ -2,3 +2,4 @@ __pycache__
 mainDummy.py
 fieldTest.py
 streamListener.py
+auth.py
